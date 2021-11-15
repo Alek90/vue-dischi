@@ -1,7 +1,7 @@
 <template>
     <main id="main_site" class="bg-dark">
 
-        <div class="container">
+        <div class="">
             <!-- qui inseriremo componente card. -->
             <DiscList />
         </div>

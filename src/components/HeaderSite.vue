@@ -15,8 +15,12 @@ export default {
 
 <style lang="scss">
 
-img{
-    width: 50px;
+header{
+    height: 50px;
+}
+
+#header_site img{
+    width: 30px;
 }
 
 </style>

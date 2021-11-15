@@ -1,18 +1,23 @@
 <template>
-    <div class="discs row justify-content-center">
+    <div class="discs row mx-4 gy-4 gx-5 justify-content-center">
 
-        <div class="disc card text-center col-md-2 bg-secondary" v-for="disc in discs" :key="disc.year">
+        <div class="col-md-2 px-4" v-for="disc in discs" :key="disc.year">
 
-            <img :src="disc.poster" alt="disc.title 'cover'">
+            <div class="disc p-4 text-center bg-secondary">
 
-            <h2 class="text-white">{{disc.title}}</h2>
+                <img :src="disc.poster" alt="disc.title 'cover'">
 
-            <div class="info">
+                <h3 class="text-white my-4">{{disc.title}}</h3>
 
-                <p>{{disc.author}}</p>
-                <p>{{disc.year}}</p>
-                
+                <div class="info">
+
+                    <div>{{disc.author}}</div>
+                    <div>{{disc.year}}</div>
+                    
+                </div>
+
             </div>
+
 
         </div>
 
@@ -49,5 +54,13 @@ export default {
 </script>
 
 <style lang="scss">
+
+.disc{
+    height: 100%;
+
+    img{
+        width: 100%;
+    } 
+}
 
 </style>
