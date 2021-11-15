@@ -1,5 +1,5 @@
 <template>
-    <header id="header_site" class="bg-secondary">
+    <header id="header_site">
 
         <img src="../assets/Spotify_logo_without_text.svg" alt="">
 
@@ -16,11 +16,12 @@ export default {
 <style lang="scss">
 
 header{
-    height: 50px;
+    height: 75px;
 }
 
 #header_site img{
-    width: 30px;
+    width: 45px;
+    margin: 15px
 }
 
 </style>

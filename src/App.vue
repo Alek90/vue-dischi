@@ -17,16 +17,7 @@ export default {
     MainSite
   },
 
-  /* mounted(){
-
-    axios
-    .get('https://flynn.boolean.careers/exercises/api/array/music')
-    .then(r => {
-      console.log(r);
-    }).catch(e => {
-      console.log(e);
-    })
-  } */
+  
 }
 </script>
 
@@ -34,6 +25,7 @@ export default {
 
 /* importazione bootstrap */
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./assets/scss/style.scss";
 
 
 </style>

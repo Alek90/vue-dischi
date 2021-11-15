@@ -1,0 +1,20 @@
+:root{
+    --mid-dark-bg: rgb(46, 58, 70);
+    --main-bg: rgb(30, 45, 59);
+    --text-grey: rgb(128, 128, 128)
+}
+
+
+
+#header_site,
+#main_site .disc{
+    background-color: var(--mid-dark-bg);
+}
+
+#main_site{
+    background-color: var(--main-bg);
+
+    .info{
+        color: var(--text-grey);
+    }
+}

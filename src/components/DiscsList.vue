@@ -3,7 +3,7 @@
 
         <div class="col-md-2 px-4" v-for="disc in discs" :key="disc.title">
 
-            <div class="disc p-4 text-center bg-secondary">
+            <div class="disc p-4 text-center">
 
                 <img :src="disc.poster" alt="disc.title 'cover'">
 

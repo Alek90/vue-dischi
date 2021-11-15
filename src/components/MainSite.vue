@@ -1,5 +1,5 @@
 <template>
-    <main id="main_site" class="bg-dark">
+    <main id="main_site">
 
         <div class="main_content container-fluid">
             <!-- qui inseriremo componente card. -->
