@@ -1,7 +1,7 @@
 <template>
     <header id="header_site">
 
-        <img src="../assets/Spotify_logo_without_text.svg" alt="">
+        <img class="logo" src="https://www.wallpapertip.com/wmimgs/17-176153_download-logo-spotify-png.png" alt="logo Spotify">
 
     </header>
 </template>
@@ -19,9 +19,10 @@ header{
     height: 75px;
 }
 
-#header_site img{
+#header_site > .logo{
     width: 45px;
     margin: 15px
 }
 
 </style>
+
