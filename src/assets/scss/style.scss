@@ -5,7 +5,7 @@
 }
 
 
-
+// colori con variabili:
 #header_site,
 #main_site .disc{
     background-color: var(--mid-dark-bg);
@@ -16,5 +16,43 @@
 
     .info{
         color: var(--text-grey);
+    }
+}
+
+// HEADER:
+header{
+    height: 75px;
+    
+    .logo{
+        width: 45px;
+        margin: 15px
+    }
+}
+
+
+// MAIN:
+
+//MainSite:
+#main_site{
+    height: 1200px;
+
+    .main_content{
+        padding: 100px 0;
+    }
+
+
+    // DiscList:
+    .disc{
+        height: 100%;
+        
+        img{
+            width: 100%;
+        } 
+        
+        .author{
+            font-size: 1.2rem;
+            line-height: 1.3rem;
+        }
+        
     }
 }

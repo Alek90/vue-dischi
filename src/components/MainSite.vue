@@ -2,8 +2,9 @@
     <main id="main_site">
 
         <div class="main_content container-fluid">
-            <!-- qui inseriremo componente card. -->
+
             <DiscList />
+
         </div>
 
     </main>
@@ -25,11 +26,4 @@ export default {
 
 <style lang="scss">
 
-#main_site{
-    height: 100vh;
-
-    .main_content{
-        padding: 100px 0;
-    }
-}
 </style>

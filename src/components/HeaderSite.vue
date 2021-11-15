@@ -15,14 +15,5 @@ export default {
 
 <style lang="scss">
 
-header{
-    height: 75px;
-}
-
-#header_site > .logo{
-    width: 45px;
-    margin: 15px
-}
-
 </style>
 

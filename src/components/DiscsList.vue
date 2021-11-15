@@ -18,7 +18,6 @@
 
             </div>
 
-
         </div>
 
     </div>
@@ -26,7 +25,6 @@
 
 <script>
 import axios from 'axios';
-
 
 export default {
 
@@ -54,20 +52,5 @@ export default {
 </script>
 
 <style lang="scss">
-
-
-.disc{
-    height: 100%;
-
-    img{
-        width: 100%;
-    } 
-
-    .author{
-        font-size: 1.2rem;
-        line-height: 1.3rem;
-    }
-
-}
 
 </style>
