@@ -1,7 +1,7 @@
 <template>
     <main id="main_site" class="bg-dark">
 
-        <div class="">
+        <div class="main_content container-fluid">
             <!-- qui inseriremo componente card. -->
             <DiscList />
         </div>
@@ -25,4 +25,11 @@ export default {
 
 <style lang="scss">
 
+#main_site{
+    height: 100vh;
+
+    .main_content{
+        padding: 100px 0;
+    }
+}
 </style>
