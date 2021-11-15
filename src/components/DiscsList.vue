@@ -1,7 +1,20 @@
 <template>
-    <div class="discs">
+    <div class="discs row justify-content-center">
 
-        <div class="disc" v-for="disc in discs" :key="disc.year"></div>
+        <div class="disc card text-center col-md-2 bg-secondary" v-for="disc in discs" :key="disc.year">
+
+            <img :src="disc.poster" alt="disc.title 'cover'">
+
+            <h2 class="text-white">{{disc.title}}</h2>
+
+            <div class="info">
+
+                <p>{{disc.author}}</p>
+                <p>{{disc.year}}</p>
+                
+            </div>
+
+        </div>
 
     </div>
 </template>
