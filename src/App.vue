@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <h3 class="text-center text-primary">bootstrap</h3>
+    <HeaderSite />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import HeaderSite from './components/HeaderSite.vue'
 
 export default {
   name: 'App',
   components: {
+    HeaderSite,
   },
 
   mounted(){
