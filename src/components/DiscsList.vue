@@ -1,26 +1,39 @@
 <template>
-    <div class="discs row mx-4 gy-4 gx-5 justify-content-center">
+    <div id="disc_list">
 
-        <div class="col-md-2 px-4" v-for="disc in discs" :key="disc.title">
+        <div v-if="loading != true" class="discs row mx-4 gy-4 gx-5 justify-content-center">
 
-            <div class="disc p-4 text-center">
+            <div class="col-md-2 px-4" v-for="disc in discs" :key="disc.title">
 
-                <img :src="disc.poster" alt="disc.title 'cover'">
+                <div class="disc p-4 text-center">
 
-                <h5 class="text-white my-4">{{disc.title.toUpperCase()}}</h5>
+                    <img :src="disc.poster" alt="disc.title 'cover'">
 
-                <div class="info">
+                    <h5 class="text-white my-4">{{disc.title.toUpperCase()}}</h5>
 
-                    <div class="author">{{disc.author}}</div>
-                    <div class="year">{{disc.year}}</div>
-                    
+                    <div class="info">
+
+                        <div class="author">{{disc.author}}</div>
+                        <div class="year">{{disc.year}}</div>
+                        
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
+        <div v-if="loading != false">
+
+            <h2 class="text-center text-white">
+                LOADING...
+            </h2>
+
+        </div>
+
     </div>
+
 </template>
 
 <script>
@@ -32,21 +45,30 @@ export default {
 
     data(){
         return{
-            discs: {}
+            discs: {},
+
+            loading: true
         }
     },
 
     mounted() {
 
-        axios
-        .get('https://flynn.boolean.careers/exercises/api/array/music')
-        .then(r => {
-        console.log(r.data);
-        this.discs = r.data.response;
-        console.log(this.discs);
-        }).catch(e => {
-        console.log(e);
-    })
+        setTimeout(this.callAPI, 3000);
+        
+    },
+
+    methods:{
+        callAPI() {
+            axios
+            .get('https://flynn.boolean.careers/exercises/api/array/music')
+            .then(r => {
+            console.log(r.data);
+            this.discs = r.data.response;
+            this.loading = false;
+            }).catch(e => {
+            console.log(e);
+            });
+        }
     }
 }
 </script>
