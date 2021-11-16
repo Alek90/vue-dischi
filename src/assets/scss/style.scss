@@ -63,9 +63,16 @@ header{
         
     }
 
-    #music_genre{
-        background-color: var(--mid-dark-bg);
+    #music_genre, #author{
+        font-size: 1.3rem;
+        font-weight: bolder;
+        background-color: var(--main-bg);
         border: none;
         color: var(--brand-color-logo);
+
+        &:hover{
+            background-color: var(--mid-dark-bg);
+            box-shadow: 0 0 2px 2px var(--brand-color-logo); 
+        }
     }
 }

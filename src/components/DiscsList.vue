@@ -1,19 +1,23 @@
 <template>
     <div id="disc_list">
 
-        <select v-model="choiceGenre" name="music_genre" id="music_genre">
-            <option value="All">All</option>
-            <option value="Rock">Rock</option>
-            <option value="Pop">Pop</option>
-            <option value="Jazz">Jazz</option>
-            <option value="Metal">Metal</option>
-        </select>
+        <div class="menu d-flex justify-content-evenly mb-5">
+        
+            <select v-model="choiceGenre" name="music_genre" id="music_genre">
+                <option value="All">All</option>
+                <option value="Rock">Rock</option>
+                <option value="Pop">Pop</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Metal">Metal</option>
+            </select>
 
 
-        <select v-model="choiceAuthor" name="author" id="author">
-            <option value="All_artist">All artist</option>
-            <option v-for="disc in discs" :value="disc.author" :key="disc.author">{{disc.author}}</option>
-        </select>
+            <select v-model="choiceAuthor" name="author" id="author">
+                <option value="All_artist">All artist</option>
+                <option v-for="disc in showFilterGenre" :value="disc.author" :key="disc.author">{{disc.author}}</option>
+            </select>
+
+        </div>
 
         <div v-if="loading != true" class="discs row mx-4 gy-4 gx-5 justify-content-center">
 
@@ -91,16 +95,11 @@ export default {
             }).catch(e => {
             console.log(e);
             });
-        },
-
-       /*  selectChoice() {
-            console.log(this.choiceGenre);
-        } */
-
+        }
     },
 
     computed: {
-        /* showFilterGenre() {
+        showFilterGenre() {
             if(this.choiceGenre === "All") {
                 return this.discs;
             }else {
@@ -112,7 +111,7 @@ export default {
 
         },
 
-        showFilterAuthor() {
+        /* showFilterAuthor() {
             if(this.choiceAuthor === "All_artist") {
                 return this.discs;
             }else {
@@ -134,7 +133,7 @@ export default {
                 });
                 return filteredGenre;
 
-            }else/*  if(this.choiceAuthor !== "All_artist") */ {
+            }else {
                 const filteredAuthor = this.discs.filter((disc) => {
                     return disc.author == this.choiceAuthor;
                 });
@@ -142,6 +141,25 @@ export default {
             }
         }
 
+        /* se genere è all e autore è all, mostra tutto. Se genere è all, ma autore è diverso, mostra autore. Se genere è diverso, e autore è all, mostra autori genere. Se genere è diverso e autore è diverso, mostra autore genere. */
+
+        // se genere è all e autore è all, mostra tutto.
+        /* if(this.choiceGenre === "All" && this.choiceAuthor === "All_artist") {
+                return this.discs; */
+
+        //  Se genere è all, ma autore è diverso, mostra autore. -> se autore è diverso, mostra utore!/
+        /* if(this.choiceAuthor !== "All") {
+                const filteredAuthor = this.discs.filter((disc) => {
+                    return disc.author == this.choiceAuthor;
+                });
+                return filteredAuthor; */
+
+        // Se genere è diverso, e autore è all, mostra autori genere.
+        /* if(this.choiceGenre !== "All") {
+                const filteredGenre = this.discs.filter((disc) => {
+                    return disc.genre == this.choiceGenre;
+                });
+                return filteredGenre; */
     }
 }
 </script>
