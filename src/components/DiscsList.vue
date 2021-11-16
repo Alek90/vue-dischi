@@ -32,13 +32,15 @@
 
         </div>
 
-        <select name="music_genre" id="music_genre">
+         <select v-model="choiceGenre" @change="selectChoice()" name="music_genre" id="music_genre">
             <option value="all">All</option>
             <option value="rock">Rock</option>
             <option value="pop">Pop</option>
             <option value="jazz">Jazz</option>
             <option value="metal">Metal</option>
         </select>
+
+        <!-- quando cambio valore del select, devo filtrare i disc che contengono genre = value. -->
 
 
     </div>
@@ -56,6 +58,8 @@ export default {
         return{
             discs: {},
 
+            choiceGenre: 'all',
+
             loading: true
         }
     },
@@ -71,14 +75,21 @@ export default {
             axios
             .get('https://flynn.boolean.careers/exercises/api/array/music')
             .then(r => {
-            console.log(r.data);
+            //console.log(r.data);
             this.discs = r.data.response;
             this.loading = false;
             }).catch(e => {
             console.log(e);
             });
+        },
+
+        selectChoice() {
+            console.log(this.choiceGenre);
         }
+
     }
+
+    
 }
 </script>
 
