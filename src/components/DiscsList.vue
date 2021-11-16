@@ -103,6 +103,7 @@ export default {
             if(this.choiceGenre === "All") {
                 return this.discs;
             }else {
+                this.choiceAuthor === 'All_artist';
                 const filteredGenre = this.discs.filter((disc) => {
                     return disc.genre == this.choiceGenre;
                 });
@@ -127,7 +128,7 @@ export default {
             if(this.choiceGenre === "All" && this.choiceAuthor === "All_artist") {
                 return this.discs;
 
-            }else if(this.choiceGenre !== "All") {
+            }else if(this.choiceGenre !== "All" && this.choiceAuthor === "All_artist") {
                 const filteredGenre = this.discs.filter((disc) => {
                     return disc.genre == this.choiceGenre;
                 });
@@ -141,25 +142,6 @@ export default {
             }
         }
 
-        /* se genere è all e autore è all, mostra tutto. Se genere è all, ma autore è diverso, mostra autore. Se genere è diverso, e autore è all, mostra autori genere. Se genere è diverso e autore è diverso, mostra autore genere. */
-
-        // se genere è all e autore è all, mostra tutto.
-        /* if(this.choiceGenre === "All" && this.choiceAuthor === "All_artist") {
-                return this.discs; */
-
-        //  Se genere è all, ma autore è diverso, mostra autore. -> se autore è diverso, mostra utore!/
-        /* if(this.choiceAuthor !== "All") {
-                const filteredAuthor = this.discs.filter((disc) => {
-                    return disc.author == this.choiceAuthor;
-                });
-                return filteredAuthor; */
-
-        // Se genere è diverso, e autore è all, mostra autori genere.
-        /* if(this.choiceGenre !== "All") {
-                const filteredGenre = this.discs.filter((disc) => {
-                    return disc.genre == this.choiceGenre;
-                });
-                return filteredGenre; */
     }
 }
 </script>
