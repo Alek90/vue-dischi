@@ -1,9 +1,23 @@
 <template>
     <div id="disc_list">
 
+        <select v-model="choiceGenre" name="music_genre" id="music_genre">
+            <option value="All">All</option>
+            <option value="Rock">Rock</option>
+            <option value="Pop">Pop</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Metal">Metal</option>
+        </select>
+
+
+        <select v-model="choiceAuthor" name="author" id="author">
+            <option value="All_artist">All artist</option>
+            <option v-for="disc in discs" :value="disc.author" :key="disc.author">{{disc.author}}</option>
+        </select>
+
         <div v-if="loading != true" class="discs row mx-4 gy-4 gx-5 justify-content-center">
 
-            <div class="col-md-2 px-4" v-for="disc in showFilterDiscs" :key="disc.title">
+            <div class="col-md-2 px-4" v-for="disc in showFilterDisc" :key="disc.title">
 
                 <div class="disc p-4 text-center">
 
@@ -32,13 +46,7 @@
 
         </div>
 
-         <select v-model="choiceGenre" @change="selectChoice()" name="music_genre" id="music_genre">
-            <option value="all">All</option>
-            <option value="Rock">Rock</option>
-            <option value="Pop">Pop</option>
-            <option value="Jazz">Jazz</option>
-            <option value="Metal">Metal</option>
-        </select>
+         
 
         <!-- quando cambio valore del select, devo filtrare i disc che contengono genre = value. -->
 
@@ -58,7 +66,9 @@ export default {
         return{
             discs: {},
 
-            choiceGenre: 'all',
+            choiceGenre: 'All',
+
+            choiceAuthor: 'All_artist',
 
             loading: true
         }
@@ -83,28 +93,56 @@ export default {
             });
         },
 
-        selectChoice() {
+       /*  selectChoice() {
             console.log(this.choiceGenre);
-        }
+        } */
 
     },
 
     computed: {
-        showFilterDiscs() {
-            if(this.choiceGenre === "all"){
-                console.log('ciao');
+        /* showFilterGenre() {
+            if(this.choiceGenre === "All") {
                 return this.discs;
+            }else {
+                const filteredGenre = this.discs.filter((disc) => {
+                    return disc.genre == this.choiceGenre;
+                });
+                return filteredGenre;
             }
 
-                const filteredDiscs = this.discs.filter((disc) => {
-                    return disc.genre == this.choiceGenre
-                });
-                console.log(filteredDiscs, this.choiceGenre);
-                return filteredDiscs;
-        }
-    }
+        },
 
-    
+        showFilterAuthor() {
+            if(this.choiceAuthor === "All_artist") {
+                return this.discs;
+            }else {
+                const filteredAuthor = this.discs.filter((disc) => {
+                    return disc.author == this.choiceAuthor;
+                });
+                return filteredAuthor;
+            }
+        }, */
+
+
+        showFilterDisc() {
+            if(this.choiceGenre === "All" && this.choiceAuthor === "All_artist") {
+                return this.discs;
+
+            }else if(this.choiceGenre !== "All") {
+                const filteredGenre = this.discs.filter((disc) => {
+                    return disc.genre == this.choiceGenre;
+                });
+                return filteredGenre;
+
+            }else/*  if(this.choiceAuthor !== "All_artist") */ {
+                const filteredAuthor = this.discs.filter((disc) => {
+                    return disc.author == this.choiceAuthor;
+                });
+                return filteredAuthor;
+            }
+        }
+
+    }
 }
 </script>
 
